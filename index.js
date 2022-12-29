@@ -3,7 +3,7 @@ const WebSocketServer = require('websocket').server;
 let connection = null;
 
 const httpserver = http.createServer((req, res) => {
-    console.log("We have recieved a request");
+    console.log("We have received a request");
 });
 
 const websocket = new WebSocketServer({ "httpServer": httpserver }); 
@@ -20,10 +20,9 @@ websocket.on("request", request=> {
     connection.on("close", () => console.log("Connection closed"));
     connection.on('message', (message) => {
         console.log("Message recieved");
-        console.log(`Recieved message: ${message.utf8Data}`);
+        console.log(`Received message: ${message.utf8Data}`);
     });
     sendevery5seconds();
-
 });
       
 function sendevery5seconds() {
